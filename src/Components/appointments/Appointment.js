@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Table from "../table/Table";
 import Header from "../header/Header";
 import Information from "../information/Information";
+import DeleteModal from "../deleteModal/DeleteModal";
 import "./Appointment.scss";
 
 function Appointment() {
@@ -22,6 +23,7 @@ function Appointment() {
       </Header>
       <Information />
       <Table />
+      <DeleteModal />
     </div>
   );
 }

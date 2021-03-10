@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import MuiAlert from "@material-ui/lab/Alert";
 import {
@@ -16,6 +17,7 @@ function Alert(props) {
 }
 
 function Information(props) {
+  let history = useHistory();
   const [name, setName] = useState("");
   const [doctor, setDoctor] = useState("");
   const [date, setDate] = useState("");
@@ -60,7 +62,8 @@ function Information(props) {
       setMessage("Данные удачно отправлены на сервер");
       setOpen(true);
       setName("");
-      window.location.reload();
+      history.push("/");
+      history.push("/appointment");
     } catch (e) {
       setSeverity("error");
       setMessage("Что-то пошло не так");

@@ -12,7 +12,6 @@ function App() {
         <Route path="/appointment" component={Appointment} />
         <Route path="/registration" component={Registration} />
         <Route path="/" component={SignIn} />
-        <Redirect from="/" to="/" />
       </Switch>
 
       {localStorage.getItem("user") ? (
@@ -21,7 +20,7 @@ function App() {
         </Switch>
       ) : (
         <Switch>
-          <Redirect from="/" to="/" />
+          <Redirect to="/" />
         </Switch>
       )}
     </div>
