@@ -1,0 +1,31 @@
+.Header {
+  &-appBar.MuiAppBar-colorPrimary {
+    background: #c5e9ff;
+    padding: 10px;
+  }
+  &-logoText {
+    margin-left: 75px !important;
+    color: black !important;
+    font-size: 36px !important;
+  }
+}
+
+.content-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #c5e9ff;
+  margin-top: 150px;
+}
+
+@media (min-width: 600px) {
+  .MuiToolbar-gutters {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
+
+.MuiToolbar-gutters {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
