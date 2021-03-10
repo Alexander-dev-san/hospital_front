@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "./Registration.scss";
-import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
-import Header from "../header/Header";
+import axios from "axios";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+import Header from "../header/Header";
 import mainImg from "../regestration/img/logo.svg";
+import "./Registration.scss";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;

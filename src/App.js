@@ -1,9 +1,9 @@
 import React from "react";
-import "./App.scss";
-import Appointment from "./Components/appointments/Appointment";
 import { Switch, Route, Redirect } from "react-router-dom";
+import Appointment from "./Components/appointments/Appointment";
 import SignIn from "./Components/signIn/SignIn";
 import Registration from "./Components/regestration/Registration";
+import "./App.scss";
 
 function App() {
   return (

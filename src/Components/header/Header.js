@@ -1,7 +1,7 @@
 import React from "react";
-import "./Header.scss";
-import logo from "./img/logo.png";
 import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
+import logo from "./img/logo.png";
+import "./Header.scss";
 
 function Header(props) {
   return (

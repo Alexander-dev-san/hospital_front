@@ -3,47 +3,43 @@
   margin: 0;
 }
 
-.SignIn-form p {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 36px;
-  color: #000000;
-  margin-bottom: 40px;
-}
-
 .SignIn-form {
   background: #ffffff;
   border-radius: 10px;
   margin-left: 50px;
   padding: 55px 42px 70px 42px;
-}
-
-.SignIn-form form {
-  display: flex;
-  flex-direction: column;
-  background: #ffffff;
-  border-radius: 10px;
-  text-align: left;
-}
-
-.SignIn-form label {
-  font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
-  color: #000000;
-  margin-bottom: 10px;
-}
-
-.SignIn-form input {
-  width: 18vw;
-  height: 40px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  border-radius: 4px;
-  font-size: 20px;
-  margin-bottom: 20px;
-  padding: 10px;
+  & p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    color: #000000;
+    margin-bottom: 40px;
+  }
+  & form {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: left;
+  }
+  & label {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+  & input {
+    width: 18vw;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
 }
 
 .send-block {
@@ -64,18 +60,17 @@
   font-size: 18px;
 }
 
-.send-block a {
-  font-family: Roboto;
-  font-weight: 300;
-  font-size: 18px;
-  color: #000000;
-  text-decoration: none;
-}
-
 .content-block {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #c5e9ff;
   margin-top: 150px;
+  & a {
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+  }
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Information.scss";
 import axios from "axios";
+import MuiAlert from "@material-ui/lab/Alert";
 import {
   Container,
   Typography,
@@ -9,7 +9,7 @@ import {
   Button,
   Snackbar,
 } from "@material-ui/core";
-import MuiAlert from "@material-ui/lab/Alert";
+import "./Information.scss";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -59,7 +59,8 @@ function Information(props) {
       setSeverity("success");
       setMessage("Данные удачно отправлены на сервер");
       setOpen(true);
-      // window.location.reload();
+      setName("");
+      window.location.reload();
     } catch (e) {
       setSeverity("error");
       setMessage("Что-то пошло не так");
@@ -131,7 +132,11 @@ function Information(props) {
               onChange={(e) => setComplaint(e.target.value)}
             />
           </div>
-          <Button variant="contained" onClick={onClickTable}>
+          <Button
+            variant="contained"
+            onClick={onClickTable}
+            disabled={!name || !doctor || !date || !complaint}
+          >
             Добавить
           </Button>
         </div>

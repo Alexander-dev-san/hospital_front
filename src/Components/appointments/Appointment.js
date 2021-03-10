@@ -1,19 +1,22 @@
 import React from "react";
-import "./Appointment.scss";
+import { useHistory } from "react-router-dom";
+import Table from "../table/Table";
 import Header from "../header/Header";
 import Information from "../information/Information";
-import Table from "../table/Table";
+import "./Appointment.scss";
 
 function Appointment() {
+  let history = useHistory();
+
   const outBtn = () => {
     localStorage.removeItem("user");
-    window.location.reload();
+    history.push("/");
   };
 
   return (
     <div className="Appointment">
       <Header heading="Приемы">
-        <button onClick={outBtn} className="outBtn">
+        <button onClick={() => outBtn()} className="outBtn">
           Выйти
         </button>
       </Header>

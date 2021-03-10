@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import "./SignIn.scss";
-import axios from "axios";
-import mainImg from "../signIn/img/logo.svg";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 import Header from "../header/Header";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
-import sha1 from "js-sha1";
+import mainImg from "../signIn/img/logo.svg";
+import "./SignIn.scss";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -37,14 +36,13 @@ function SignIn() {
     try {
       await axios.post("http://localhost:8000/checkUser", {
         login: login,
-        password: sha1(password),
+        password: password,
       });
       setSeverity("success");
       setMessage("Вы удачно авторизованы");
       setOpen(true);
-      localStorage.setItem("user", "user");
+      localStorage.setItem("user", {login});
       history.push("/appointment");
-      window.location.reload();
     } catch (e) {
       setSeverity("error");
       setMessage("Вы ввели неверный логин или пароль");
