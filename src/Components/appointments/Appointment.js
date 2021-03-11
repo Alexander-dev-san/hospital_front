@@ -6,7 +6,7 @@ import Information from "../information/Information";
 import DeleteModal from "../deleteModal/DeleteModal";
 import "./Appointment.scss";
 
-function Appointment() {
+function Appointment(props) {
   let history = useHistory();
 
   const outBtn = () => {

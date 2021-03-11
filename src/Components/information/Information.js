@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import MuiAlert from "@material-ui/lab/Alert";
 import {
@@ -16,8 +16,9 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-function Information(props) {
+function Information() {
   let history = useHistory();
+
   const [name, setName] = useState("");
   const [doctor, setDoctor] = useState("");
   const [date, setDate] = useState("");
@@ -61,8 +62,6 @@ function Information(props) {
       setSeverity("success");
       setMessage("Данные удачно отправлены на сервер");
       setOpen(true);
-      setName("");
-      history.push("/");
       history.push("/appointment");
     } catch (e) {
       setSeverity("error");
