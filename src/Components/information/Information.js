@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, useParams, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import MuiAlert from "@material-ui/lab/Alert";
 import {
@@ -35,10 +35,6 @@ function Information() {
       value: "Bиталий Виталов Виталович",
     },
   ];
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // };
 
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
