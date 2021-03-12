@@ -23,8 +23,8 @@
   border-radius: 10px;
 }
 
-.MuiButton-root {
+button#addBtn.MuiButton-root {
   height: 0;
-  padding: 28px 24px !important;
-  background: white !important;
+  padding: 28px 24px;
+  background: white;
 }
