@@ -131,8 +131,9 @@ function Information() {
             />
           </div>
           <Button
+            id='addBtn'
             variant="contained"
-            onClick={onClickTable}
+            onClick={() => onClickTable()}
             disabled={!name || !doctor || !date || !complaint}
           >
             Добавить

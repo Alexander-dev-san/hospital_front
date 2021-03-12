@@ -22,6 +22,7 @@ function Table() {
     setDeleteMod(true);
     setIdDelete(id);
   };
+
   const handleEdit = (item) => {
     setEditMod(true);
     setItemEdit(item);
@@ -38,23 +39,16 @@ function Table() {
     history.push("/appointment");
   };
 
-  const editRow = async (
-    item,
-    nameEdit,
-    doctorEdit,
-    dateEdit,
-    complaintEdit
-  ) => {
+  const editRow = async (editParams) => {
     await axios
       .patch("http://localhost:8000/changeAppointment", {
-        _id: item._id,
-        name: nameEdit,
-        doctor: doctorEdit,
-        date: dateEdit,
-        complaint: complaintEdit,
+        _id: editParams.item._id,
+        name: editParams.nameEdit,
+        doctor: editParams.doctorEdit,
+        date: editParams.dateEdit,
+        complaint: editParams.complaintEdit,
       })
       .then((res) => {
-        console.log(res.data.data);
         setAppointment(res.data.data);
       });
     history.push("/appointment");
@@ -65,12 +59,12 @@ function Table() {
     setDeleteMod(false);
   };
 
-  const onEditRow = (item, nameEdit, doctorEdit, dateEdit, complaintEdit) => {
-    editRow(item, nameEdit, doctorEdit, dateEdit, complaintEdit);
+  const onEditRow = (editParams) => {
+    editRow(editParams);
     setEditMod(false);
   };
 
-  useEffect(() => getAllAppoints(), [appointments]);
+  useEffect(() => getAllAppoints(), []);
 
   const getAllAppoints = async () => {
     await axios.get("http://localhost:8000/getAllAppointments").then((res) => {
@@ -122,6 +116,7 @@ function Table() {
           idDel={idDel}
           deleteEl={onDeleteRow}
           setDeleteMod={setDeleteMod}
+          deleteMod={deleteMod}
         />
       ) : (
         <div />
@@ -131,6 +126,7 @@ function Table() {
           itemEdit={itemEdit}
           editEl={onEditRow}
           setEditMod={setEditMod}
+          editMod={editMod}
         />
       ) : (
         <div />

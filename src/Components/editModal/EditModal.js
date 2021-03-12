@@ -27,10 +27,18 @@ function EditModal(props) {
     },
   ];
 
+  let editParams = {
+    item: props.itemEdit,
+    nameEdit,
+    doctorEdit,
+    dateEdit,
+    complaintEdit
+  }
+
   return (
     <div>
       <Dialog
-        open={true}
+        open={props.editMod}
         onClose={() => props.setEditMod(false)}
         aria-labelledby="form-dialog-title"
       >
@@ -95,11 +103,7 @@ function EditModal(props) {
           <Button
             onClick={() =>
               props.editEl(
-                props.itemEdit,
-                nameEdit,
-                doctorEdit,
-                dateEdit,
-                complaintEdit
+                editParams
               )
             }
             color="primary"
