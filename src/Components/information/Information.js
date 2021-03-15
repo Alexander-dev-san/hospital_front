@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
 import MuiAlert from "@material-ui/lab/Alert";
 import {
   Container,
@@ -16,9 +14,7 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-function Information() {
-  let history = useHistory();
-
+function Information(props) {
   const [name, setName] = useState("");
   const [doctor, setDoctor] = useState("");
   const [date, setDate] = useState("");
@@ -47,32 +43,13 @@ function Information() {
     setOpen(false);
   };
 
-  const addNewAppointment = async () => {
-    try {
-      await axios.post("http://localhost:8000/createNewAppointment", {
-        name: name,
-        doctor: doctor,
-        date: date,
-        complaint: complaint,
-      });
-      setSeverity("success");
-      setMessage("Данные удачно отправлены на сервер");
-      setOpen(true);
-      history.push("/appointment");
-    } catch (e) {
-      setSeverity("error");
-      setMessage("Что-то пошло не так");
-      setOpen(true);
-    }
-  };
-
   const onClickTable = (e) => {
     if (name === "" || doctor === "" || date === "" || complaint === "") {
       setSeverity("error");
       setMessage("Заполните все поля!");
       setOpen(true);
     } else {
-      addNewAppointment();
+      props.addNewAppointment(name, doctor, date, complaint);
       setName("");
       setDate("");
       setDoctor("");
@@ -131,7 +108,7 @@ function Information() {
             />
           </div>
           <Button
-            id='addBtn'
+            id="addBtn"
             variant="contained"
             onClick={() => onClickTable()}
             disabled={!name || !doctor || !date || !complaint}
