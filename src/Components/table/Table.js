@@ -66,63 +66,65 @@ function Table(props) {
 
   return (
     <Container fixed>
-      <table className="table">
-        <tbody>
-          <tr className="table-row">
-            <th>Имя</th>
-            <th>Врач</th>
-            <th>Дата</th>
-            <th>Жалобы</th>
-            <th>&nbsp;</th>
-          </tr>
-          {props.appointments.map((item, ind) => (
-            <tr className="appoint-row" key={`${ind}`}>
-              <td className="appoint-column">{item.name}</td>
-              <td className="appoint-column">{item.doctor}</td>
-              <td className="appoint-column">
-                {new Date(Date.parse(item.date)).toLocaleDateString("ru-RU")}
-              </td>
-              <td className="appoint-column">{item.complaint}</td>
-              <td className="appoint-column">
-                <div className="tableBtns">
-                  <img
-                    src={editImg}
-                    className="tableImg"
-                    alt="edit"
-                    onClick={() => handleEdit(item)}
-                  />
-                  <img
-                    src={deleteImg}
-                    className="tableImg"
-                    alt="delete"
-                    onClick={() => handleDelete(item._id)}
-                  />
-                </div>
-              </td>
+      <div className="main">
+        <table className="table">
+          <tbody>
+            <tr className="table-row">
+              <th>Имя</th>
+              <th>Врач</th>
+              <th>Дата</th>
+              <th>Жалобы</th>
+              <th>&nbsp;</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      {deleteMod ? (
-        <DeleteModal
-          idDel={idDel}
-          deleteEl={onDeleteRow}
-          setDeleteMod={setDeleteMod}
-          deleteMod={deleteMod}
-        />
-      ) : (
-        <div />
-      )}
-      {editMod ? (
-        <EditModal
-          itemEdit={itemEdit}
-          editEl={onEditRow}
-          setEditMod={setEditMod}
-          editMod={editMod}
-        />
-      ) : (
-        <div />
-      )}
+            {props.appointments.map((item, ind) => (
+              <tr className="appoint-row" key={`${ind}`}>
+                <td className="appoint-column">{item.name}</td>
+                <td className="appoint-column">{item.doctor}</td>
+                <td className="appoint-column">
+                  {new Date(Date.parse(item.date)).toLocaleDateString("ru-RU")}
+                </td>
+                <td className="appoint-column">{item.complaint}</td>
+                <td className="appoint-column">
+                  <div className="tableBtns">
+                    <img
+                      src={editImg}
+                      className="tableImg"
+                      alt="edit"
+                      onClick={() => handleEdit(item)}
+                    />
+                    <img
+                      src={deleteImg}
+                      className="tableImg"
+                      alt="delete"
+                      onClick={() => handleDelete(item._id)}
+                    />
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {deleteMod ? (
+          <DeleteModal
+            idDel={idDel}
+            deleteEl={onDeleteRow}
+            setDeleteMod={setDeleteMod}
+            deleteMod={deleteMod}
+          />
+        ) : (
+          <div />
+        )}
+        {editMod ? (
+          <EditModal
+            itemEdit={itemEdit}
+            editEl={onEditRow}
+            setEditMod={setEditMod}
+            editMod={editMod}
+          />
+        ) : (
+          <div />
+        )}
+      </div>
     </Container>
   );
 }
