@@ -3,29 +3,40 @@
     background: #c5e9ff;
     padding: 10px;
   }
-  &-logoText {
-    margin-left: 75px !important;
-    color: black !important;
-    font-size: 36px !important;
+
+  &-logoText.MuiTypography-root {
+    margin-left: 75px;
+    color: black;
+    font-size: 36px;
   }
 }
 
-.content-block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #c5e9ff;
-  margin-top: 150px;
+div.MuiToolbar-regular {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
-@media (min-width: 600px) {
-  .MuiToolbar-gutters {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+@media (max-width: 600px) {
+  p.Header-logoText.MuiTypography-root {
+    margin: 0;
+    font-size: 28px;
+    margin-left: 0;
+    margin-bottom: 15px;
   }
-}
 
-.MuiToolbar-gutters {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+  .Header-logoText.MuiTypography-root {
+    margin-left: 0;
+  }
+
+  div.toolbar.MuiToolbar-root {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    & img {
+      width: 25%;
+      margin-bottom: 15px;
+    }
+  }
 }

@@ -8,10 +8,8 @@ import "./Table.scss";
 import DeleteModal from "../deleteModal/DeleteModal";
 import EditModal from "../editModal/EditModal";
 
-function Table() {
+function Table(props) {
   let history = useHistory();
-
-  const [appointments, setAppointment] = useState([]);
   const [deleteMod, setDeleteMod] = useState(false);
   const [idDel, setIdDelete] = useState("");
 
@@ -34,8 +32,9 @@ function Table() {
         data: { id: id },
       })
       .then((res) => {
-        setAppointment(res.data.data);
+        props.setAppointment(res.data.data);
       });
+    props.getAllAppoints(props.dateFrom, props.dateBy);
     history.push("/appointment");
   };
 
@@ -49,8 +48,9 @@ function Table() {
         complaint: editParams.complaintEdit,
       })
       .then((res) => {
-        setAppointment(res.data.data);
+        props.setAppointment(res.data.data);
       });
+    props.getAllAppoints(props.dateFrom, props.dateBy);
     history.push("/appointment");
   };
 
@@ -64,14 +64,6 @@ function Table() {
     setEditMod(false);
   };
 
-  useEffect(() => getAllAppoints(), []);
-
-  const getAllAppoints = async () => {
-    await axios.get("http://localhost:8000/getAllAppointments").then((res) => {
-      setAppointment(res.data.data);
-    });
-  };
-
   return (
     <Container fixed>
       <table className="table">
@@ -83,7 +75,7 @@ function Table() {
             <th>Жалобы</th>
             <th>&nbsp;</th>
           </tr>
-          {appointments.map((item, ind) => (
+          {props.appointments.map((item, ind) => (
             <tr className="appoint-row" key={`${ind}`}>
               <td className="appoint-column">{item.name}</td>
               <td className="appoint-column">{item.doctor}</td>

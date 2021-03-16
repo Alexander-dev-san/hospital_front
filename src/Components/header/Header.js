@@ -8,7 +8,7 @@ function Header(props) {
     <div className="Header">
       <AppBar className="Header-appBar">
         <Container fixed>
-          <Toolbar>
+          <Toolbar className='toolbar'>
             <img src={logo} alt="logo" />
             <Typography className="Header-logoText">{props.heading}</Typography>
             {props.children}

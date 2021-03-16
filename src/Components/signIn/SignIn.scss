@@ -8,6 +8,7 @@
   border-radius: 10px;
   margin-left: 50px;
   padding: 55px 42px 70px 42px;
+
   & p {
     font-style: normal;
     font-weight: 300;
@@ -15,6 +16,7 @@
     color: #000000;
     margin-bottom: 40px;
   }
+
   & form {
     display: flex;
     flex-direction: column;
@@ -22,6 +24,7 @@
     border-radius: 10px;
     text-align: left;
   }
+
   & label {
     font-style: normal;
     font-weight: 300;
@@ -29,6 +32,7 @@
     color: #000000;
     margin-bottom: 10px;
   }
+
   & input {
     width: 18vw;
     height: 40px;
@@ -49,7 +53,7 @@
   margin-top: 40px;
 }
 
-#form-btn {
+#form-btn_s {
   width: 8vw;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -66,11 +70,77 @@
   align-items: center;
   background: #c5e9ff;
   margin-top: 150px;
+
   & a {
     font-family: Roboto;
     font-weight: 300;
     font-size: 18px;
     color: #000000;
     text-decoration: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .SignIn-form {
+    padding: 50px 37px 65px 37px;
+
+    & input {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  #form-btn_s {
+    width: 12vw;
+  }
+}
+
+@media (max-width: 810px) {
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+
+    & .SignIn-form {
+      width: 70%;
+      order: -1;
+      margin-left: 0;
+      margin-bottom: 20px;
+    } 
+  }
+
+  #form-btn_s {
+    width: 20vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .content-block {
+    margin-top: 30%;
+  }
+
+  #form-btn_s {
+    width: 35%;
+  }
+}
+
+@media (max-width: 400px) {
+  .content-block {
+    margin-top: 40%;
+  }
+
+  .Content-mainImg {
+    width: 90%;
+
+    & img {
+      width: 100%;
+    }
+  }
+  
+  #form-btn_s {
+    width: 50%;
   }
 }
