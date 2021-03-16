@@ -57,7 +57,7 @@ function SignIn() {
     } else if (login.length < 6) {
       setMessage("Минимальное колличество символов для Login = 6");
       setOpen(true);
-    } else if (!/(?=^.{6,}$)([a-zA-Z\d]+$)/.test(password)) {
+    } else if (!/(?=.*[0-9])(?=.*[A-Za-z]){5,}/.test(password)) {
       setMessage(
         "Введите в поле password не менее 6 латинских символов, минимум 1 из которых является числом"
       );
@@ -97,7 +97,7 @@ function SignIn() {
               <input
                 type="submit"
                 value="Войти"
-                id="form-btn"
+                id="form-btn_s"
                 onClick={(e) => onClickSignInBtn(e)}
               />
               <Link to="/registration">Зарегистрироваться</Link>

@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { Container, Typography, TextField, MenuItem, Button } from "@material-ui/core";
+import React, { useState } from "react";
+import {
+  Container,
+  Typography,
+  TextField,
+  MenuItem,
+  Button,
+} from "@material-ui/core";
 import addImg from "../sort/img/add.svg";
 import deleteImg from "../sort/img/deleteSort.svg";
 import "./Sort.scss";
 
 function Sort(props) {
-  let history = useHistory();
   const [elemSort, setElemSort] = useState("");
   const [dir, setDir] = useState(false);
   const [filter, setFilter] = useState(true);
@@ -56,15 +60,15 @@ function Sort(props) {
   };
 
   const onDeleteFilter = () => {
-    props.setDateFrom('');
-    props.setDateBy('');
+    props.setDateFrom("");
+    props.setDateBy("");
     setFilter(true);
-    props.getAllAppoints('', '');
-  }
+    props.getAllAppoints("", "");
+  };
 
   const onFilterThis = () => {
     props.getAllAppoints(props.dateFrom, props.dateBy);
-  }
+  };
 
   return (
     <Container fixed>
@@ -86,7 +90,7 @@ function Sort(props) {
           </TextField>
         </div>
 
-        {dir ? (
+        {dir && (
           <div className="Sort_direct">
             <Typography className="Sort-text">Направление:</Typography>
             <TextField
@@ -103,9 +107,9 @@ function Sort(props) {
               ))}
             </TextField>
           </div>
-        ) : null}
+        )}
 
-        {filter ? (
+        {filter && (
           <div className="filter">
             <Typography className="Sort-text">
               Добавить фильтр по дате:
@@ -113,16 +117,13 @@ function Sort(props) {
             <img
               src={addImg}
               className="filter_img"
+              alt='addImg'
               onClick={() => setFilter(false)}
             />
           </div>
-        ) : (
-          <div></div>
         )}
       </div>
-      {filter ? (
-        <div></div>
-      ) : (
+      {!filter && (
         <div className="filter-date">
           <Typography className="Information-Text">с:</Typography>
           <TextField
@@ -144,13 +145,13 @@ function Sort(props) {
             id="addBtn"
             variant="contained"
             onClick={() => onFilterThis()}
-            // disabled={!name || !doctor || !date || !complaint}
           >
             Фильтровать
           </Button>
           <img
             src={deleteImg}
             className="filter_img"
+            alt='deleteImg'
             onClick={() => onDeleteFilter()}
           />
         </div>
