@@ -19,8 +19,6 @@ function Sort(props) {
   const directSort = props.directSort;
   const setDirectSort = props.setDirectSort;
   const sortApp = props.sortApp;
-  const dateFromDel = "";
-  const dateByDel = "";
 
   const rangeSort = [
     { key: "name", value: "Имя" },
@@ -65,7 +63,7 @@ function Sort(props) {
     props.setDateFrom("");
     props.setDateBy("");
     setFilter(true);
-    props.getAllAppoints(dateFromDel, dateByDel);
+    props.getAllAppoints("", "");
   };
 
   const onFilterThis = () => {
@@ -151,7 +149,7 @@ function Sort(props) {
             src={deleteImg}
             className="filter_img"
             alt="deleteImg"
-            onClick={() => onDeleteFilter(dateFromDel, dateByDel)}
+            onClick={() => onDeleteFilter()}
           />
         </div>
       }

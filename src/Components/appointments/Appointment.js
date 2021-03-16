@@ -136,8 +136,8 @@ function Appointment() {
         dateBy={dateBy}
       />
       <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity={"error"}>
-          {"Ошибка соединения с сервером"}
+        <Alert onClose={handleClose} severity="error">
+          "Ошибка соединения с сервером"
         </Alert>
       </Snackbar>
     </div>
