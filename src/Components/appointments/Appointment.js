@@ -20,10 +20,7 @@ function Appointment() {
   const [directSort, setDirectSort] = useState("asc");
   const [dateFrom, setDateFrom] = useState("");
   const [dateBy, setDateBy] = useState("");
-
-  const [severity, setSeverity] = useState("error");
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("");
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -48,8 +45,6 @@ function Appointment() {
       getAllAppoints(dateFrom, dateBy);
       history.push("/appointment");
     } catch (e) {
-      setSeverity("error");
-      setMessage("Ошибка соединения с сервером");
       setOpen(true);
     }
   };
@@ -66,8 +61,6 @@ function Appointment() {
           setAppointment(arrNew);
         });
     } catch (e) {
-      setSeverity("error");
-      setMessage("Ошибка соединения с сервером");
       setOpen(true);
     }
   };
@@ -89,28 +82,25 @@ function Appointment() {
   const onFilter = (dateFrom, dateBy, appointments) => {
     switch (true) {
       case dateFrom != "" && dateBy != "":
-        let newArr = appointments.filter((item) => {
+        return appointments.filter((item) => {
           return (
             item.date.split("T")[0] >= dateFrom &&
             item.date.split("T")[0] <= dateBy
           );
         });
-        return newArr;
 
       case dateFrom === "" && dateBy === "":
         return appointments;
 
       case dateFrom !== "" && dateBy === "":
-        let newArr2 = appointments.filter((item) => {
+        return appointments.filter((item) => {
           return item.date.split("T")[0] >= dateFrom;
         });
-        return newArr2;
 
       case dateFrom === "" && dateBy !== "":
-        let newArr3 = appointments.filter((item) => {
+        return appointments.filter((item) => {
           return item.date.split("T")[0] <= dateBy;
         });
-        return newArr3;
     }
   };
 
@@ -146,8 +136,8 @@ function Appointment() {
         dateBy={dateBy}
       />
       <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity={severity}>
-          {message}
+        <Alert onClose={handleClose} severity={"error"}>
+          {"Ошибка соединения с сервером"}
         </Alert>
       </Snackbar>
     </div>

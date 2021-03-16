@@ -19,6 +19,8 @@ function Sort(props) {
   const directSort = props.directSort;
   const setDirectSort = props.setDirectSort;
   const sortApp = props.sortApp;
+  const dateFromDel = "";
+  const dateByDel = "";
 
   const rangeSort = [
     { key: "name", value: "Имя" },
@@ -59,11 +61,11 @@ function Sort(props) {
     props.setAppointment(arr);
   };
 
-  const onDeleteFilter = () => {
+  const onDeleteFilter = (dateFromDel, dateByDel) => {
     props.setDateFrom("");
     props.setDateBy("");
     setFilter(true);
-    props.getAllAppoints("", "");
+    props.getAllAppoints(dateFromDel, dateByDel);
   };
 
   const onFilterThis = () => {
@@ -90,8 +92,7 @@ function Sort(props) {
           </TextField>
         </div>
 
-        {dir && (
-          <div className="Sort_direct">
+        {dir && <div className="Sort_direct">
             <Typography className="Sort-text">Направление:</Typography>
             <TextField
               id="directInput"
@@ -107,24 +108,22 @@ function Sort(props) {
               ))}
             </TextField>
           </div>
-        )}
+        }
 
-        {filter && (
-          <div className="filter">
+        {filter && <div className="filter">
             <Typography className="Sort-text">
               Добавить фильтр по дате:
             </Typography>
             <img
               src={addImg}
               className="filter_img"
-              alt='addImg'
+              alt="addImg"
               onClick={() => setFilter(false)}
             />
           </div>
-        )}
+        }
       </div>
-      {!filter && (
-        <div className="filter-date">
+      {!filter && <div className="filter-date">
           <Typography className="Information-Text">с:</Typography>
           <TextField
             type="date"
@@ -151,11 +150,11 @@ function Sort(props) {
           <img
             src={deleteImg}
             className="filter_img"
-            alt='deleteImg'
-            onClick={() => onDeleteFilter()}
+            alt="deleteImg"
+            onClick={() => onDeleteFilter(dateFromDel, dateByDel)}
           />
         </div>
-      )}
+      }
     </Container>
   );
 }

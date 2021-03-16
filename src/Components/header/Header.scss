@@ -3,34 +3,30 @@
     background: #c5e9ff;
     padding: 10px;
   }
-  &-logoText {
-    margin-left: 75px !important;
-    color: black !important;
-    font-size: 36px !important;
+
+  &-logoText.MuiTypography-root {
+    margin-left: 75px;
+    color: black;
+    font-size: 36px;
   }
 }
 
-.MuiToolbar-gutters {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
-
-@media (min-width: 600px) {
-  .MuiToolbar-gutters {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
+div.MuiToolbar-regular {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 @media (max-width: 600px) {
   p.Header-logoText.MuiTypography-root {
     margin: 0;
-    font-size: 28px !important;
+    font-size: 28px;
     margin-left: 0;
   }
-  .Header-logoText {
-    margin-left: 0 !important;
+
+  .Header-logoText.MuiTypography-root {
+    margin-left: 0;
   }
+
   div.toolbar.MuiToolbar-root {
     flex-direction: column;
     text-align: center;
