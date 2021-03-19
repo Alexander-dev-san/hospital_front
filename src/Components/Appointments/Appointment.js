@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
-import Table from "./Table/Table";
+import Snackbar from "@material-ui/core/Snackbar";
 import Header from "../Header/Header";
-import Information from "./Information/Information";
+import Table from "./Table/Table";
 import Sort from "./SortFilter/Sort";
+import Information from "./Information/Information";
 import "./Appointment.scss";
 
 function Alert(props) {
@@ -113,14 +113,14 @@ function Appointment() {
       </Header>
       <Information addNewAppointment={addNewAppointment} />
       <Sort
-        setAppointment={setAppointment}
         appointments={appointments}
-        getAllAppoints={getAllAppoints}
-        howSort={howSort}
-        setHowSort={setHowSort}
         directSort={directSort}
         setDirectSort={setDirectSort}
         sortApp={sortApp}
+        setAppointment={setAppointment}
+        getAllAppoints={getAllAppoints}
+        howSort={howSort}
+        setHowSort={setHowSort}
         dateFrom={dateFrom}
         setDateFrom={setDateFrom}
         dateBy={dateBy}
@@ -135,7 +135,6 @@ function Appointment() {
         dateFrom={dateFrom}
         dateBy={dateBy}
       />
-      <div className="indent"></div>
       <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error">
           "Ошибка соединения с сервером"

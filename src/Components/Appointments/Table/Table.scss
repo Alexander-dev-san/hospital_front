@@ -65,3 +65,13 @@
   }
 }
 
+@media (max-width: 600px) {
+  div.MuiDialog-paperWidthSm {
+    width: 90%;
+  }
+
+  .main {
+    margin-bottom: 10px;
+  }
+}
+

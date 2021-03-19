@@ -85,6 +85,7 @@ p.filter-date_text.MuiTypography-root {
   .Sort {
     width: 100%;
   }
+
   p.Sort-text {
     font-size: 18px;
   }
@@ -138,7 +139,7 @@ p.filter-date_text.MuiTypography-root {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 24px 0 0 0;
+    padding-top: 24px;
     margin-bottom: 10px;
 
     &_block {
@@ -167,6 +168,7 @@ p.filter-date_text.MuiTypography-root {
   #filter-btn {
     padding: 24px 10px;
   }
+  
   .filter {
     &_img {
       margin-left: 10px;

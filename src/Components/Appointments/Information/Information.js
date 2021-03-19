@@ -41,7 +41,6 @@ function Information(props) {
     } else {
       setInfo(false);
     }
-    console.log(width);
   }, [width]);
 
   let doctors = [
@@ -86,18 +85,24 @@ function Information(props) {
 
   const addInfo = () => {
     setInfo(false);
-  }
+  };
 
   const hideInfo = () => {
     setInfo(true);
-  }
+  };
 
   return (
     <div className="Information-shadow">
       <Container fixed>
         {info ? (
           <div className="Information_btn">
-            <Button variant="contained" onClick={() => addInfo()} id='addInfoBlockBtn'>Добавить данные в таблицу</Button>
+            <Button
+              variant="contained"
+              onClick={() => addInfo()}
+              id="addInfoBlockBtn"
+            >
+              Добавить данные в таблицу
+            </Button>
           </div>
         ) : (
           <div className="Information">
@@ -147,28 +152,32 @@ function Information(props) {
                 onChange={(e) => setComplaint(e.target.value)}
               />
             </div>
-            <div className='Information_btns'>
-            <Button
-              id="addBtn"
-              variant="contained"
-              onClick={() => onClickTable()}
-              disabled={!name || !doctor || !date || !complaint}
-            >
-              Добавить
-            </Button>
+            <div className="Information_btns">
+              <Button
+                id="addBtn"
+                variant="contained"
+                onClick={() => onClickTable()}
+                disabled={!name || !doctor || !date || !complaint}
+              >
+                Добавить
+              </Button>
 
-            <Button
-              id="hideBtn"
-              variant="contained"
-              onClick={() => hideInfo()}
-            >
-              Скрыть
-            </Button>
+              <Button
+                id="hideBtn"
+                variant="contained"
+                onClick={() => hideInfo()}
+              >
+                Скрыть
+              </Button>
             </div>
           </div>
         )}
       </Container>
-      <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+      <Snackbar 
+        open={open} 
+        autoHideDuration={4000} 
+        onClose={handleClose}
+      >
         <Alert onClose={handleClose} severity={severity}>
           {message}
         </Alert>

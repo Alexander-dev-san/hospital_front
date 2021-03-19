@@ -118,11 +118,7 @@
 	display: inline-block;
 	width: 25px;
 	height: 25px;
-  // background-image: url('../regestration/img/invisible.svg');
   cursor: pointer;
-}
-.password-control.view {
-  // background: url('../regestration/img/invisible.svg') 0 0 no-repeat;
 }
 
 .password-control_repeat {
@@ -132,16 +128,12 @@
 	display: inline-block;
 	width: 25px;
 	height: 25px;
-  // background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
   cursor: pointer;
-}
-.password-control_repeat.view {
-  // background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
 }
 
 @media (width: 1024px) {
   .content-block {
-    margin-top: 400px;
+    margin-top: 40%;
   }
 }
 

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 import { Container } from "@material-ui/core";
-import editImg from "../../../images/pencil.svg";
-import deleteImg from "../../../images/delete.svg";
 import DeleteModal from "../../DeleteModal/DeleteModal";
 import EditModal from "../../EditModal/EditModal";
+import editImg from "../../../images/pencil.svg";
+import deleteImg from "../../../images/delete.svg";
 import "./Table.scss";
 
 function Table(props) {

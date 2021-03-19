@@ -13,10 +13,10 @@
     width: 20%;
     text-align: left;
   }
+}
 
-  &-Text {
-    font-size: 20px !important;
-  }
+p.MuiTypography-root.Information-Text {
+  font-size: 20px;
 }
 
 .MuiTextField-root {
@@ -51,10 +51,6 @@ button#hideBtn.MuiButton-root {
 
     &_block {
       width: 100%;
-    }
-
-    &-Text {
-      font-size: 20px !important;
     }
 
     &_btns {
@@ -100,10 +96,6 @@ button#hideBtn.MuiButton-root {
 
     &_block {
       width: 100%;
-    }
-
-    &-Text {
-      font-size: 20px !important;
     }
 
     &_btn {
