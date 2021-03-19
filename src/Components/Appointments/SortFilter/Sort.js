@@ -15,7 +15,12 @@ function Sort(props) {
   const [dir, setDir] = useState(false);
   const [filter, setFilter] = useState(true);
   
-  const {appointments, directSort, setDirectSort, sortApp} = props;
+  const { 
+    appointments, 
+    directSort, 
+    setDirectSort, 
+    sortApp 
+  } = props;
 
   const rangeSort = [
     { key: "name", value: "Имя" },
